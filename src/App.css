@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.write-todo {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  margin-top: 30px;
+}
+.tips-box {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  margin-top: 20px;
+}
+.input {
+  background: rgb(233, 235, 238);
+  width: 100%;
+  box-sizing: border-box;
+  height: 40px;
+  border: 0;
+  border-radius: 4px;
+  padding-left: 8px;
+  font-size: 14px;
+}
+.input::-webkit-input-placeholder {
+  color: rgb(175, 175, 175);
+}
+.todo-box, .done-box {
+  width: 50%;
+  margin:0 auto;
+  margin-top: 20px;
+}
+.single-todo, .single-done {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  line-height: 50px;
+}
+.text-box {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  margin-left: 10px;
+  padding-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+.title-box {
+  width: 50%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.text, .text-done {
+  padding-left: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.text-done {
+  text-decoration: line-through;
+  color: rgb(160, 160, 160);
+}
+.loading {
+  position: absolute;
+  left: 48%;
+  top: 48%;
+}
+.loading img {
+  margin-left: 35%;
+}
+.loading-text {
+  text-align: center;
+}
+.tip-text {
+  cursor: pointer;
+  color: 'rgb(113,123,131)';
+  font-size: 14px;
+}
