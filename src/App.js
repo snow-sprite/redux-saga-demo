@@ -9,6 +9,7 @@ import {
  } from './actions'
 import DateUtil from './lib/DateFormat'
 import IMAGES from './lib/images'
+let count = 1
 class App extends Component {
   constructor(props) {
     super(props)
@@ -35,7 +36,8 @@ class App extends Component {
           param: {
             content: this.state.todo,
             is_done: false,
-            date: new Date().getTime()
+            date: new Date().getTime(),
+            id: ++count
           },
           done: () => {
             // actions成功回调
@@ -52,6 +54,17 @@ class App extends Component {
     }
   }
 
+  /**
+   * 
+   * @param {更新input} e 
+   */
+  updateInput = e => {
+    this.setState({
+      todo: e.target.value,
+      date: Date.now(),
+      id: count++
+     })
+   }
   /*
    * 选中标签 完成当前任务
    */
@@ -111,19 +124,21 @@ toggleShowFinished = () => {
             type="text"
             className="input"
             placeholder="write something..."
+            value={this.state.todo}
+            onChange={e => this.updateInput(e)}
             onKeyDown={(e) => this.addTodo(e)}
            />
         </p>
         {/* 新todo */}
         <ul className="todo-box">
           {
-            addDoneRes.map((item, ind) => {
+            addDoneRes.map(item => {
               return (
-                <li className="single-todo" key={ind}>
+                <li className="single-todo" key={item.id}>
                   <p className="radio-box">
                     <input
                       type="radio"
-                      key={ind}
+                      key={item.id}
                       onClick={() => this.finishItem(item)}
                    />
                   </p>
@@ -164,9 +179,9 @@ toggleShowFinished = () => {
           this.state.isShowFinished && (
             <ul className="done-box">
               {
-                removeDoneRes.map((item, ind) => {
+                removeDoneRes.map(item => {
                   return (
-                    <li className="single-done" key={ind}>
+                    <li className="single-done" key={item.id}>
                       <p className="radio-box">
                         <input
                           type="radio"

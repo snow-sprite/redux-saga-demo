@@ -8,7 +8,8 @@ const initTodo = {
     {
       content: 'default',
       is_done: false,
-      date: new Date().getTime()
+      date: new Date().getTime(),
+      id: 1
     }
   ],
   // 已完成任务列表
